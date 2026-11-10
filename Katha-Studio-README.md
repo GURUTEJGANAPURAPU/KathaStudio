@@ -608,12 +608,6 @@ GROQ_MODEL
 
 Keep the keys server-only (no `VITE_` prefix). Redeploy after changing environment variables so the new deployment receives them.
 
-### Deployment limitation: current local storage
-
-Vercel can host the app and run its TanStack server functions, but it does not turn browser-local storage into cloud storage. In this repository snapshot, projects and audio remain in the visitor's own browser. A visitor using a different device or browser will not see the same productions.
-
-For a multi-user production application, integrate a hosted database and object storage (for example, Supabase) before claiming that projects sync across devices. The Supabase project previously created for Katha Studio is not referenced by the source files in this repository snapshot.
-
 ## Security notes
 
 - Gnani and Groq API keys are read in server functions and must never be exposed to the browser.
