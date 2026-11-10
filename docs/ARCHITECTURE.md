@@ -78,25 +78,6 @@ sequenceDiagram
     Browser-->>User: Download production WAV
 ```
 
-## Persistence model
-
-```mermaid
-flowchart TB
-    PROJECT[StudioProject] --> LS[(localStorage)]
-    LS --> STORAGEKEY[katha-studio-projects-v1]
-    PROJECT --> SCENES[StudioScene[]]
-    SCENES --> LINES[StudioLine[]]
-    LINES --> ASSETREF[ audioAssetId ]
-    PROJECT --> SOURCE[storyAudioAssetId]
-    PROJECT --> FINAL[audioAssetId]
-    ASSETREF --> IDB[(IndexedDB)]
-    SOURCE --> IDB
-    FINAL --> IDB
-    IDB --> DBNAME[katha-studio-assets]
-    DBNAME --> STORE[audio-assets object store]
-    STORE --> BLOB[StoredAudio: id, blob, name, type, createdAt]
-```
-
 A project's JSON metadata is stored under `katha-studio-projects-v1`. Audio bytes are stored in IndexedDB under database `katha-studio-assets`, object store `audio-assets`. The project references audio by asset ID. A temporary object URL is created when audio is loaded for playback.
 
 ## External API boundaries
