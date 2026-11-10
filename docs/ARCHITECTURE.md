@@ -1,4 +1,4 @@
-# Katha Studio — Architecture Notes
+# Katha Studio — Architecture 
 
 This document describes the implementation represented by the repository snapshot. It is intentionally explicit about the current browser-local persistence model and the future deployment target.
 
@@ -77,9 +77,6 @@ sequenceDiagram
     UI->>Browser: Decode, place clips, add 300ms gaps, encode PCM WAV
     Browser-->>User: Download production WAV
 ```
-
-A project's JSON metadata is stored under `katha-studio-projects-v1`. Audio bytes are stored in IndexedDB under database `katha-studio-assets`, object store `audio-assets`. The project references audio by asset ID. A temporary object URL is created when audio is loaded for playback.
-
 ## External API boundaries
 
 ### Gnani Prisma
@@ -120,16 +117,3 @@ flowchart TB
     SERVER --> GROQ[Groq API]
     VISITOR <--> LOCAL[(Browser localStorage + IndexedDB)]
 ```
-
-The application source currently uses `@lovable.dev/vite-tanstack-config` in `vite.config.ts`. The comments in that file describe a Cloudflare-default Nitro target. Vercel deployment requires replacing/adapting that Lovable-specific Vite configuration to the supported TanStack Start + Nitro Vercel setup. See the Vercel deployment guide linked from the root README.
-
-## Current persistence boundary
-
-There is no database connection or Supabase package in the current source. The browser storage model is suitable for a single-browser prototype, not a shared multi-user production service. A cloud-backed version should introduce:
-
-1. Authentication and user identity.
-2. PostgreSQL tables for projects, characters, scenes, lines and asset metadata.
-3. Private object storage for recordings, line audio and exports.
-4. Row-level security / ownership checks.
-5. Local data migration from localStorage and IndexedDB.
-6. Signed downloads or authenticated file access.
