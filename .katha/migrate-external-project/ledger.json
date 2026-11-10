@@ -1,0 +1,16 @@
+{
+  "source": "code-archive",
+  "artifact": "screenshot-exact-main.zip",
+  "capabilities": [
+    { "capability": "application code, routes, and visual assets", "source": "uploaded Katha Studio archive", "outcome": "restored the supplied Katha interface and routes in the existing TanStack Start project", "status": "verified", "next_action": "none" },
+    { "capability": "schema", "source": "none detected", "outcome": "none to migrate; browser-local storage is explicitly requested", "status": "accepted", "next_action": "none" },
+    { "capability": "application records", "source": "none attached or detected", "outcome": "none to import", "status": "accepted", "next_action": "none" },
+    { "capability": "auth identities and authorization", "source": "none detected", "outcome": "no account system to migrate; browser-local workspace remains", "status": "accepted", "next_action": "none" },
+    { "capability": "uploaded file bytes", "source": "no production media export detected", "outcome": "no existing media to migrate", "status": "accepted", "next_action": "none" },
+    { "capability": "external providers", "source": "brief names Gnani Prisma/Timbre and Groq; no integration configuration detected", "outcome": "implemented server-side provider checks, transcription, speech, and screenplay calls; live calls require private deployment credentials", "status": "pending", "next_action": "configure credentials privately, then test both providers" },
+    { "capability": "public endpoints, callbacks, webhooks, and schedules", "source": "none detected", "outcome": "none to migrate", "status": "accepted", "next_action": "none" },
+    { "capability": "secrets", "source": "not present in archive", "outcome": "no secret values copied", "status": "pending", "next_action": "confirm private deployment environment contains GNANI_API_KEY and GROQ_API_KEY" },
+    { "capability": "cutover", "source": "no existing production deployment identified", "outcome": "not applicable", "status": "accepted", "next_action": "none" },
+    { "capability": "verification", "source": "current Lovable project", "outcome": "typecheck and 14 route/audio tests pass; preview dashboard and local draft save/reload verified; live provider calls require credentials", "status": "pending", "next_action": "test provider calls after private credentials are configured" }
+  ]
+}
