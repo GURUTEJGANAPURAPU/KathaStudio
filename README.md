@@ -39,7 +39,6 @@ Katha Studio helps a creator turn a written story or spoken narration into an ed
 - [Run tests and production build](#run-tests-and-production-build)
 - [Deploy to Vercel](#deploy-to-vercel)
 - [Security notes](#security-notes)
-- [Known limitations and roadmap](#known-limitations-and-roadmap)
 - [Contributing](#contributing)
 
 ---
@@ -621,31 +620,6 @@ For a multi-user production application, integrate a hosted database and object 
 - Only send audio to Gnani when the user explicitly starts transcription or voice generation.
 - Do not commit `.env.local`, real API credentials, exported recordings or private user stories.
 - If cloud persistence is added, use authenticated ownership checks, private object buckets and row-level security policies. Do not use a service-role key from the browser.
-
-## Known limitations and roadmap
-
-### Known limitations in this snapshot
-
-- Projects and audio assets are local to one browser profile; there is no cloud synchronization or backup.
-- There is no user registration/login flow.
-- Supabase is not connected in the checked-in source.
-- The Published screen filters items marked as `Published`, but the full publishing/share workflow is not implemented.
-- The editor uses an ordered clip/timeline presentation; it is not a complete multitrack DAW with editable waveform regions and automation lanes.
-- Audio composition exports PCM WAV. MP3 encoding is not implemented in the current source.
-- The current voice casting model is based on speaker names extracted from dialogue lines; a richer, independently editable character entity model can be added later.
-- Background music is represented in the studio UI, but a complete background-music mixing workflow is not implemented.
-- The screenshot captures show the app's UI at particular development points; visual screenshots alone do not guarantee that every external API call is configured or available.
-
-### Suggested next milestones
-
-- [ ] Complete Vercel/Nitro configuration and verify production server functions.
-- [ ] Add Supabase Auth and migrate project metadata to PostgreSQL.
-- [ ] Add private Supabase Storage for original recordings, generated clips and final exports.
-- [ ] Add local-to-cloud migration for projects already stored in localStorage/IndexedDB.
-- [ ] Add complete publish/share links and public playback permissions.
-- [ ] Add a richer character profile model and persist character descriptions/voice metadata.
-- [ ] Add MP3 export and optional soundtrack mixing.
-- [ ] Add full timeline editing features and regression tests for the end-to-end production flow.
 
 ## Contributing
 
